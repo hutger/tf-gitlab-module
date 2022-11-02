@@ -12,6 +12,7 @@ data "gitlab_project_protected_branch" "this" {
   for_each   = var.gitlab_projects
   project_id = "${each.value.namespace}/${each.value.name}"
   name       = each.value.default_branch
+  depends_on = [gitlab_project.this]
 }
 
 
