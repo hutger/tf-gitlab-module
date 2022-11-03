@@ -28,17 +28,17 @@ resource "gitlab_project" "this" {
   default_branch         = each.value.default_branch
   initialize_with_readme = true
 
-  only_allow_merge_if_pipeline_succeeds = try(each.value.only_allow_merge_if_pipeline_succeeds, "true")
-  allow_merge_on_skipped_pipeline       = try(each.value.allow_merge_on_skipped_pipeline, "false")
-  remove_source_branch_after_merge      = try(each.value.allow_merge_on_skipped_pipeline, "true")
-  container_registry_enabled            = try(each.value.container_registry_enabled, true)
-  packages_enabled                      = try(each.value.packages_enabled, true)
-  pipelines_enabled                     = try(each.value.pipelines_enabled, true)
-  snippets_enabled                      = try(each.value.snippets_enabled, true)
-  wiki_enabled                          = try(each.value.wiki_enabled, true)
+  only_allow_merge_if_pipeline_succeeds = each.value.only_allow_merge_if_pipeline_succeeds
+  allow_merge_on_skipped_pipeline       = each.value.allow_merge_on_skipped_pipeline
+  remove_source_branch_after_merge      = each.value.remove_source_branch_after_merge
+  container_registry_enabled            = each.value.container_registry_enabled
+  packages_enabled                      = each.value.packages_enabled
+  pipelines_enabled                     = each.value.pipelines_enabled
+  snippets_enabled                      = each.value.snippets_enabled
+  wiki_enabled                          = each.value.wiki_enabled
 
   container_expiration_policy {
-    enabled    = try(each.value.container_expiration_enabled, true)
+    enabled    = each.value.container_expiration_enabled
     cadence    = "1d"
     older_than = "14d"
   }
