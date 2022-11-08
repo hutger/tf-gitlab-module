@@ -5,6 +5,7 @@ data "gitlab_group" "this" {
 data "gitlab_project_protected_branch" "this" {
   project_id = "${var.proj_namespace}/${var.proj_name}"
   name       = var.proj_default_branch
+  depends_on = [gitlab_project.this]
 }
 
 # Create a project in the example group
