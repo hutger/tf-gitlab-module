@@ -2,11 +2,6 @@ data "gitlab_group" "this" {
   full_path = var.proj_namespace
 }
 
-data "gitlab_project_protected_branch" "this" {
-  project_id = "${var.proj_namespace}/${var.proj_name}"
-  name       = var.proj_default_branch
-  depends_on = [gitlab_project.this]
-}
 
 # Create a project in the example group
 resource "gitlab_project" "this" {
@@ -58,5 +53,5 @@ resource "gitlab_project_approval_rule" "this" {
   name                 = "Approval Rule"
   rule_type            = "regular"
   approvals_required   = var.proj_mr_approvals_required
-  protected_branch_ids = [data.gitlab_project_protected_branch.this.id]
+  protected_branch_ids = [gitlab_branch_protection.this.branch_protection_id]
 }
