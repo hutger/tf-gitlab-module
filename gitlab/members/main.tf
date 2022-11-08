@@ -1,6 +1,11 @@
 
+resource "time_sleep" "wait_30_seconds" {
+  create_duration = "30s"
+}
+
 data "gitlab_project" "this" {
-  id = var.member_project
+  id         = var.member_project
+  depends_on = [time_sleep.wait_30_seconds]
 }
 
 data "gitlab_user" "this" {
