@@ -2,7 +2,6 @@ data "gitlab_group" "this" {
   full_path = var.proj_namespace
 }
 
-
 # Create a project in the example group
 resource "gitlab_project" "this" {
   name         = var.proj_name
