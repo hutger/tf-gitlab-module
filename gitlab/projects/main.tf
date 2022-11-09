@@ -21,6 +21,7 @@ resource "gitlab_project" "this" {
   pipelines_enabled                     = var.proj_pipelines_enabled
   snippets_enabled                      = var.proj_snippets_enabled
   wiki_enabled                          = var.proj_wiki_enabled
+  shared_runners_enabled                = var.proj_shared_runners_enabled
 
   container_expiration_policy {
     enabled    = var.proj_container_expiration_enabled

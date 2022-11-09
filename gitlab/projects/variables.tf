@@ -112,3 +112,9 @@ variable "proj_wiki_enabled" {
   default     = true
   description = "Enable wiki for the project."
 }
+
+variable "proj_shared_runners_enabled" {
+  type        = bool
+  default     = true
+  description = "Enable shared runners for this project."
+}
