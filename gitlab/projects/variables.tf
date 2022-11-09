@@ -135,12 +135,6 @@ variable "proj_container_expiration_keep_n" {
   description = "The number of images to keep."
 }
 
-
-
-
-
-
-
 variable "proj_push_author_email_regex" {
   type        = string
   default     = null
@@ -157,8 +151,6 @@ variable "proj_push_commit_committer_check" {
   default     = true
   description = "Users can only push commits to this repository that were committed with one of their own verified emails."
 }
-
-
 
 variable "proj_push_commit_message_negative_regex" {
   type        = string
@@ -177,11 +169,6 @@ variable "proj_push_deny_delete_tag" {
   default     = false
   description = "Deny deleting a tag."
 }
-
-
-proj_push_reject_unsigned_commits (Boolean)
-
-
 
 variable "proj_push_file_name_regex" {
   type        = string
