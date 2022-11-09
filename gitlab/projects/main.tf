@@ -25,8 +25,23 @@ resource "gitlab_project" "this" {
 
   container_expiration_policy {
     enabled    = var.proj_container_expiration_enabled
-    cadence    = "1d"
-    older_than = "14d"
+    cadence    = var.proj_container_expiration_cadence
+    older_than = var.proj_container_expiration_older_than
+    keep_n     = var.proj_container_expiration_keep_n
+  }
+
+  push_rules {
+    author_email_regex            = var.proj_push_author_email_regex
+    branch_name_regex             = var.proj_push_branch_name_regex
+    commit_committer_check        = var.proj_push_commit_committer_check
+    commit_message_negative_regex = var.proj_push_commit_message_negative_regex
+    commit_message_regex          = var.proj_push_commit_message_regex
+    deny_delete_tag               = var.proj_push_deny_delete_tag
+    file_name_regex               = var.proj_push_file_name_regex
+    max_file_size                 = var.proj_push_max_file_size
+    member_check                  = var.proj_push_member_check
+    prevent_secrets               = var.proj_push_prevent_secrets
+    reject_unsigned_commits       = var.proj_push_reject_unsigned_commits
   }
 
 }
