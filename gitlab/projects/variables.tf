@@ -47,6 +47,17 @@ variable "proj_push_access_level" {
   description = "Access levels allowed to push. Valid values are: no one, developer, maintainer."
 }
 
+variable "proj_allow_force_push" {
+  type        = bool
+  default     = false
+  description = "Can be set to true to require code owner approval before merging."
+}
+variable "proj_code_owner_approval_required" {
+  type        = bool
+  default     = false
+  description = "Can be set to true to allow users with push access to force push."
+}
+
 variable "proj_merge_access_level" {
   type        = string
   default     = "maintainer"

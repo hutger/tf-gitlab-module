@@ -58,9 +58,11 @@ resource "gitlab_branch_protection" "this" {
   project = gitlab_project.this.id
   branch  = var.proj_default_branch
 
-  push_access_level      = var.proj_push_access_level
-  merge_access_level     = var.proj_merge_access_level
-  unprotect_access_level = var.proj_unprotect_access_level
+  push_access_level            = var.proj_push_access_level
+  merge_access_level           = var.proj_merge_access_level
+  unprotect_access_level       = var.proj_unprotect_access_level
+  allow_force_push             = var.proj_allow_force_push
+  code_owner_approval_required = var.proj_code_owner_approval_required
 }
 
 resource "gitlab_project_approval_rule" "this" {
