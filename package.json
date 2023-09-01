@@ -1,6 +1,6 @@
 {
   "name": "terraform-demo-module",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "@semantic-release/github": "^9.0.3",
     "semantic-release": "^21.0.5"
@@ -14,5 +14,6 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/github"
-  ]
+  ],
+  "version": "0.1.0"
 }
